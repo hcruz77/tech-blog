@@ -27,12 +27,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/update/:id', withAuth, async (req, res) => {
   try {
-    const postData = await Post.findOne(req.params.id, {
-      attributes: [
-        'title',
-        'post_content',
-      ]
-    }) 
+    const postData = await Post.findOne(req.params.id,) 
   
     const post = postData.get({ plain: true });
 

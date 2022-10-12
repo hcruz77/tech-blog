@@ -27,7 +27,14 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/update/:id', withAuth, async (req, res) => {
   try {
-    const postData = await Post.findOne(req.params.id,) 
+       const postData = await Post.findByPk(req.params.id, {
+            include: [
+              {
+                model: Post,
+                attributes: ['id'],
+              },
+            ],
+          });
   
     const post = postData.get({ plain: true });
 
@@ -35,8 +42,9 @@ router.get('/update/:id', withAuth, async (req, res) => {
       ...post,
       logged_in: req.session.logged_in
     });
+ 
   } catch (err) {
-    res.redirect('login');
+    res.status(500).json(err);
   }
 });
 

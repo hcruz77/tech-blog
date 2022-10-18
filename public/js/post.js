@@ -1,18 +1,20 @@
-const update = async () => {
-
-  const response = await fetch('/api/post/update/id', {
-    method: 'PUT',
-    headers: { 'title-type, Content-Type': 'application/json' },
-  });
+const updateButtonHandler = async (event) => {
+  if (event.target.hasAttribute('href')) {
+  const id = event.target.getAttribute('href');
+  
+      const response = await fetch(`/api/update/${id}`, {
+        method: 'POST',
+      });
 
   if (response.ok) {
     document.location.replace('/update');
   } else {
-    alert(response.statusText);
+    alert('failed to go to update');
   }
 };
+}
 
-document.querySelector('#update').addEventListener('click', update);
+document.querySelector('#update').addEventListener('click', updateButtonHandler);
 
 
 

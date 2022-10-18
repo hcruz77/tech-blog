@@ -15,20 +15,24 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.put('/:id', withAuth, async (req, res) => {
+
+
+router.put('/update/:id', withAuth, async (req, res) => {
   try {
-       const upDateData = await Post.findbyId(req.params.post_id, {
-            include: [
-              {
-                model: Post,
-                attributes: ['id', 'title', 'content'],
-              },
-            ],
-          });
-  
+       const upDateData = await Post.findOne(req.params.post_id, {
+         //   include: [
+         //     {
+         //       model: Post,
+         //       attributes: ['id', 'title', 'content'],
+         //     },
+         //   ],
+         // });
+       })
     const update = upDateData.get({ plain: true });
 
-    res.render('update', {
+    
+
+    res.render('/update', {
       ...update,
       logged_in: req.session.logged_in
     });

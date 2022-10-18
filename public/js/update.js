@@ -4,9 +4,10 @@ const updateFormHandler = async (event) => {
   const title = document.querySelector('#project-name').value.trim();
   const content = document.querySelector('#project-desc').value.trim();
 
+
   if (title && content) {
-    const response = await fetch(`/api/post/update/id`, {
-      method: 'POST',
+    const response = await fetch(`/api/update/${id}`, {
+      method: 'PUT',
       body: JSON.stringify({ title, content }),
       headers: {
         'Content-Type': 'application/json',

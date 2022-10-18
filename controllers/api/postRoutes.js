@@ -15,6 +15,31 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+       const upDateData = await Post.findbyId(req.params.post_id, {
+            include: [
+              {
+                model: Post,
+                attributes: ['id', 'title', 'content'],
+              },
+            ],
+          });
+  
+    const update = upDateData.get({ plain: true });
+
+    res.render('update', {
+      ...update,
+      logged_in: req.session.logged_in
+    });
+ 
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.destroy({
@@ -34,5 +59,9 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+
+
 
 module.exports = router;

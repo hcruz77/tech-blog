@@ -1,11 +1,11 @@
-const newFormHandler = async (event) => {
+const updateFormHandler = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector('#project-name').value.trim();
   const content = document.querySelector('#project-desc').value.trim();
 
   if (title && content) {
-    const response = await fetch(`/api/posts`, {
+    const response = await fetch(`/api/post/update/id`, {
       method: 'POST',
       body: JSON.stringify({ title, content }),
       headers: {
@@ -16,18 +16,11 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Failed to create post');
+      alert('Failed to update post');
     }
   }
 };
 
-
 document
   .querySelector('.new-project-form')
-  .addEventListener('submit', newFormHandler);
-
-
-
-
-
-  
+  .addEventListener('submit', updateFormHandler);

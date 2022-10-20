@@ -14,7 +14,7 @@ The option to comment on posts will be added in the future.
 
 ## Link
 
-[Tech Blog]()
+[Tech Blog](https://shrouded-ravine-33313.herokuapp.com/)
 
 
 

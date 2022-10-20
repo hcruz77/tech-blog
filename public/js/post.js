@@ -1,20 +1,20 @@
-const updateButtonHandler = async (event) => {
-  if (event.target.hasAttribute('href')) {
-  const id = event.target.getAttribute('href');
+// const updateButtonHandler = async (event) => {
+//   if (event.target.hasAttribute('href')) {
+//   const id = event.target.getAttribute('href');
   
-      const response = await fetch(`/api/update/${id}`, {
-        method: 'POST',
-      });
+//       const response = await fetch(`/api/update/${id}`, {
+//         method: 'POST',
+//       });
 
-  if (response.ok) {
-    document.location.replace('/update');
-  } else {
-    alert('failed to go to update');
-  }
-};
-}
+//   if (response.ok) {
+//     document.location.replace('/update');
+//   } else {
+//     alert('failed to go to update');
+//   }
+// };
+// }
 
-document.querySelector('#update').addEventListener('click', updateButtonHandler);
+// document.querySelector('#update').addEventListener('click', updateButtonHandler);
 
 
 

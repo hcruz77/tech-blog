@@ -19,24 +19,17 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/update/:id', withAuth, async (req, res) => {
   try {
-       const upDateData = await Post.findOne(req.params.post_id, {
-         //   include: [
-         //     {
-         //       model: Post,
-         //       attributes: ['id', 'title', 'content'],
-         //     },
-         //   ],
-         // });
+       const [postData] = await Post.update(req.body ,{
+        where: {
+          id: req.params.id,
+        }
        })
-    const update = upDateData.get({ plain: true });
 
-    
-
-    res.render('/update', {
-      ...update,
-      logged_in: req.session.logged_in
-    });
- 
+      if(postData > 0) {
+        res.status(200).json(postData);
+      } else {
+        res.status(400).end();
+      }
   } catch (err) {
     res.status(500).json(err);
   }

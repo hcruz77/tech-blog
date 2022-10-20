@@ -14,7 +14,7 @@ The option to comment on posts will be added in the future.
 
 ## Link
 
-[Github](https://hcruz77.github.io/tech-blog/)
+[Tech Blog]()
 
 
 

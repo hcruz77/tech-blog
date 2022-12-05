@@ -12,6 +12,11 @@ then directed to the login page.  Once logged in, the user will then be directed
 previous posts may be chosen to edit or delete.  When the user clicks a previous post to edit, that post is displayed with the option to update or delete.  If update is chosen, the user is directed to an update form of that particular post.  
 The option to comment on posts will be added in the future.
 
+
+## Technologies
+CMS-style blog deployed with Heroku. Follows MVC paradigm with Handlebars.js, Sequelize, and express-session nmp package for authentication.
+
+
 ## Link
 
 [Tech Blog](https://shrouded-ravine-33313.herokuapp.com/)

@@ -14,7 +14,7 @@ The option to comment on posts will be added in the future.
 
 
 ## Technologies
-CMS-style blog deployed with Heroku. Follows MVC paradigm with Handlebars.js, Sequelize, and express-session nmp package for authentication.
+CMS-style blog deployed with Heroku. Follows MVC paradigm with Handlebars.js, Sequelize, and express-session npm package for authentication.
 
 
 ## Link
